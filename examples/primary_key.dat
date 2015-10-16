@@ -1,0 +1,6 @@
+# Anchor shortcuts.
+ANCHOR nl = \n
+ANCHOR sep = \n|,
+
+# Annotates cells in the first column which are not unique.
+violation(?x) :- /any(^|nl)/?x:next(sep)/any(nl)/&x:next(sep)/;

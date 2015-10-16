@@ -1,0 +1,4 @@
+REGEX number = "[0-9]*"
+
+# Annotates cells in the seventh column that are not numbers.
+invalid(?x) :- /any(\n)/next{6}(,)/?x:next(,)/, not ?x.number;

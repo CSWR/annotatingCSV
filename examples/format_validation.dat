@@ -1,0 +1,5 @@
+# Shortcut for a regular expression.
+REGEX format = "\"[A-Z][0-9]+\""
+
+# Annotates cells in the first column that don't follow a certain format.
+invalid(?x) :- /any(^|\n)/?x:next(,)/, not ?x.format;

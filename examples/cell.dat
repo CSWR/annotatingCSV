@@ -1,0 +1,5 @@
+# Defines an anchor shortcut
+ANCHOR sep = ,|\n
+
+# Annotates every cell in a csv document
+cell(?x) :- /any(^|sep)/?x:next(sep)/;

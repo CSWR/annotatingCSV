@@ -1,0 +1,3 @@
+/any(^|,|\n)/?x:next(,|\n)/
+
+# Annotates every cell in a csv document
