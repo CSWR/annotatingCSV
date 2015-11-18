@@ -5,7 +5,7 @@ SET (project_LIB ${PROJECT_NAME})
 
 ADD_LIBRARY (${project_LIB} ${project_SRCS})
 SET_PROPERTY (TARGET ${project_LIB} PROPERTY CXX_STANDARD 11)
-TARGET_LINK_LIBRARIES(${project_LIB} ${project_LIBS})
+TARGET_LINK_LIBRARIES (${project_LIB} ${project_LIBS})
 LIST (APPEND project_LIBS ${project_LIB})
 
 SET (navigational_BIN "navigational_bin")
