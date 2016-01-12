@@ -19,7 +19,7 @@ TEST_CASE("Test rule evaluation", "[rule_eval]") {
     rule simple = {
       predicate({
           "P",
-          "x"
+          vector<string>({"x"})
           }),
       vector<clause>({
         pattern({
@@ -59,7 +59,7 @@ TEST_CASE("Test rule evaluation", "[rule_eval]") {
     rule simple = {
       predicate({
           "P",
-          "x"
+          vector<string>({"x"})
           }),
       vector<clause>({
         pattern({

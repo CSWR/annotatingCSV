@@ -96,8 +96,11 @@ vector<span> rule_eval::eval(parser::rule& rule) {
     boost::apply_visitor(*this, clause);
   }
 
+  // If not unary, do nothing.
+  if (rule.pred.variables.size() > 1) return vector<span>();
+
   for (auto& table : tables_) {
-    if (table->project(rule.pred.variable, answer))
+    if (table->project(rule.pred.variables[0], answer))
       break;
   }
 
@@ -105,9 +108,15 @@ vector<span> rule_eval::eval(parser::rule& rule) {
 }
 
 void rule_eval::operator()(parser::predicate& predicate) {
+  // Verify that predicate is unary
+  if (predicate.variables.size() > 1) {
+    throw std::runtime_error("Error: Only unary predicates are supported.");
+  }
+
+  // Filter each table
   for (auto& table : tables_) {
     auto& index = table->variable_index();
-    auto it = index.find(predicate.variable);
+    auto it = index.find(predicate.variables[0]);
 
     // Not found, continue
     if (it == index.end()) continue;

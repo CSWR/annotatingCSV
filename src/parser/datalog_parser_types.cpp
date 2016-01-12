@@ -18,7 +18,7 @@ bool program::operator==(const program& rhs) const {
 }
 
 bool predicate::operator==(const predicate& rhs) const {
-  return name == rhs.name && variable == rhs.variable;
+  return name == rhs.name && variables == rhs.variables;
 }
 
 bool span_equality::operator==(const span_equality& rhs) const {

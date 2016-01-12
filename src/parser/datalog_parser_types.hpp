@@ -53,7 +53,7 @@ struct program {
 
 struct predicate {
   std::string name;
-  std::string variable;
+  std::vector<std::string> variables;
 
   bool operator==(const predicate& rhs) const;
 };
@@ -112,7 +112,7 @@ BOOST_FUSION_ADAPT_STRUCT(
 BOOST_FUSION_ADAPT_STRUCT(
     csvp::navigational::parser::predicate,
     (std::string, name)
-    (std::string, variable)
+    (std::vector<std::string>, variables)
 )
 
 BOOST_FUSION_ADAPT_STRUCT(

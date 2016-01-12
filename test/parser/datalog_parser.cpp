@@ -38,13 +38,13 @@ TEST_CASE("the datalog paser works correctly", "[datalog_parser]") {
               vector<string>({",","\n"})))));
     prog2.rules.emplace_back();
     prog2.rules[0].pred.name = "P";
-    prog2.rules[0].pred.variable = "x";
+    prog2.rules[0].pred.variables = vector<string>({"x"});
     prog2.rules[0].clauses.emplace_back(pat1);
     prog2.rules[0].clauses.emplace_back(
         content_equality({true, "x", "y"}));
     prog2.rules.emplace_back();
     prog2.rules[1].pred.name = "P";
-    prog2.rules[1].pred.variable = "x";
+    prog2.rules[1].pred.variables = vector<string>({"x"});
     prog2.rules[1].clauses.emplace_back(pat2);
     prog2.rules[1].clauses.emplace_back(
         filter({true, "x", "abc"}));

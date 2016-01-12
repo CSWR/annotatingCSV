@@ -107,6 +107,7 @@ struct datalog_grammar
             identifier
         >>  lit("(?")
          >  identifier
+         >  *(lit(",?") > identifier)
          >  ')'
     ;
 
