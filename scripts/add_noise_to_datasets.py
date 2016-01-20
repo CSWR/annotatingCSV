@@ -5,12 +5,13 @@ Usage: {script_name} INPUT_FILE OUTPUT_FILE
 Adds noise to the csv file given as input.
 """
 import random
+import string
 import sys
 from collections import deque
 
 
 def usage():
-    print(__doc__.format(script_name=sys.argv[0].split("/")[-1]))
+    print(__doc__.format(script_name=sys.argv[0].split('/')[-1]))
     sys.exit(0)
 
 
@@ -34,10 +35,12 @@ def process_line(index, line, output, empty_lines):
             output.write("\n")
 
     if add_random_num:
-        output.write(random.randint(0, 9))
+        output.write(str(random.randint(0, 9)))
 
     if extra_cell:
-        output.write("{},".format(random.randint(0, 1000)))
+        output.write('{},'.format(random.randint(0, 1000)))
+        # letters = (random.choice(string.ascii_uppercase) for _ in range(3))
+        # output.write('{},'.format(''.join(letters)))
 
     output.write(line)
 
@@ -45,8 +48,9 @@ def process_line(index, line, output, empty_lines):
 def main():
     if len(sys.argv) != 3:
         usage()
-    input_file = open(sys.argv[1], "r")
-    output_file = open(sys.argv[2], "w")
+
+    input_file = open(sys.argv[1], 'r', encoding='latin1')
+    output_file = open(sys.argv[2], 'w')
 
     line_num = sum(1 for _ in input_file)
     input_file.seek(0)
