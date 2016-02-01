@@ -21,7 +21,7 @@ INCLUDE_DIRECTORIES ("${CMAKE_CURRENT_BINARY_DIR}/test")
 INCLUDE_DIRECTORIES ("${CMAKE_CURRENT_BINARY_DIR}/thirdparty")
 
 ADD_DEFINITIONS (-DBOOST_LOG_DYN_LINK)
-FIND_PACKAGE (Boost 1.58 REQUIRED COMPONENTS system filesystem program_options
+FIND_PACKAGE (Boost 1.54 REQUIRED COMPONENTS system filesystem program_options
                                              log)
 
 INCLUDE_DIRECTORIES (${Boost_INCLUDE_DIRS})
